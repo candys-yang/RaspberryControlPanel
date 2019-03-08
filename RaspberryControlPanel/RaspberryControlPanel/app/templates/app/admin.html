@@ -1,0 +1,152 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+{% if user.is_authenticated %}
+
+<form class="" style="margin-top:20px;" action="/admin" method="post" >
+    {% csrf_token %}
+
+    
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <div class="row">
+                <div class="col-md-11 col-xs-10 ">
+                    <label>心跳信号</label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">JSON</span>
+                      <input type="text" class="form-control" aria-label="" name="jsonstr" value="{{jsonstr}}" />
+                    </div>
+                </div>
+                <div class="hidden-md" style="height:5px">&nbsp;</div>
+                <div class="col-md-6 div-margin-bottom-1">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon3">host:</span>
+                      <input type="text" class="form-control" id="hoststr" name="hoststr"   value="{{hoststr}}">
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <div>
+                        <label>
+                            {% if property == "on" %}
+                            <input type="checkbox"  name="property" checked="checked"/> 发送性能指标
+                            {% else %}
+                            <input type="checkbox"  name="property" /> 发送性能指标
+                            {% endif %}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <label>
+                            {% if hardwareinfo == "on" %}
+                            <input type="checkbox" name="hardwareinfo" checked="checked"/> 发送硬件信息
+                            {% else %}
+                            <input type="checkbox" name="hardwareinfo"/> 发送硬件信息
+                            {% endif %}
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <!--
+                    <div>
+                        <label>
+                            <input type="checkbox" /> 发送GPIO数据
+                        </label>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div class="row div-margin-bottom-1">
+                <div class="col-md-4">
+                    <div>
+                        <label>
+                            {% if meg_to_uart == "on" %}
+                            <input type="checkbox" name="meg_to_uart" checked="checked"/> 向UART发送基本信息
+                            {% else %}
+                            <input type="checkbox" name="meg_to_uart" /> 向UART发送基本信息
+                            {% endif %}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row form-group" style="margin-top:20px;">
+                <div class="col-md-5">&nbsp;</div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="submit" class="btn btn-primary btn-large" id="update" style="width:160px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <!--
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <div class="row">
+                <div class="col-md-11 col-xs-10 ">
+                    <label>服务状态</label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            -
+        </div>
+    </div> 
+    -->
+
+    <!--
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <div class="row">
+                <div class="col-md-11 col-xs-10 ">
+                    <label>GPIO</label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            -
+        </div>
+    </div> 
+    -->
+
+</form>
+
+
+
+
+
+
+{% else %}
+    <div class="panel panel-default" style="margin-top:20px;">
+        <div class="panel-body"><h3>无权访问</h3>
+            <br />
+            <p><a href="./login" class="btn btn-primary btn-large">login &raquo;</a></p>
+        </div>
+
+    </div>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

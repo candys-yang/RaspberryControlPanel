@@ -1,0 +1,79 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="" style="margin-top:20px;">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading ">
+            <div class="row">
+                <div class="col-md-11 col-xs-10 ">
+                    BaseInfo  ----- {{redata_baseinfo}}
+                </div>
+            <div class="col-md-1 hidden-sm hidden-xs">
+                <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+            </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h3>CPU:{{cpu}}</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>RAM:{{ram}}</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>HD:{{hd}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            NetWork
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-11">
+                    <h3>IO_count:{{netio}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <h3>
+                    {% autoescape off %}
+                        {{netint}}
+                    {% endautoescape %}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">system info</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>BootTime:<br/>{{boottime}}</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>PyVer:{{python_ev}}</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Django:{{dj_ev}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><h4>Pi:{{pi_info}}</h4></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+   
+</div>
+
+{% endblock %}
