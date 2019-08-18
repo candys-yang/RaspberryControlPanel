@@ -14,14 +14,14 @@
 certifi==2018.11.29 </br>
 chardet==3.0.4</br>
 configparser==3.7.3</br>
-Django==2.1.7</br>
+Django>=2.1.7</br>
 idna==2.8</br>
 pip==10.0.1</br>
 psutil==5.5.1</br>
 pytz==2018.9</br>
 requests==2.21.0</br>
 setuptools==39.0.1</br>
-urllib3==1.24.1</br>
+urllib3>=1.24.1</br>
 </br>
 全新安装的raspbian系统，需要安装 python3 然后安装pip 。</br>
 通过 pip 安装 configparser 以及 psutil
